@@ -1,10 +1,9 @@
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Ingeniería', 'Facultad enfocada en ingeniería y tecnología', 'Ingeniería de Sistemas, Ingeniería Civil', 'Algoritmos, Estructuras de Datos', 'Dr. Juan Pérez', 'Ing. María López');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Medicina', 'Facultad de ciencias médicas y de la salud', 'Medicina, Enfermería', 'Anatomía, Fisiología', 'Dr. Ana Gómez', 'Dr. Carlos Ramírez');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Derecho', 'Facultad especializada en derecho y legislación', 'Derecho Penal, Derecho Civil', 'Introducción al Derecho, Legislación Empresarial', 'Dr. Pedro Suárez', 'Dr. Laura Fernández');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Economía', 'Facultad de ciencias económicas y financieras', 'Economía, Administración de Empresas', 'Macroeconomía, Microeconomía', 'Dr. Ricardo Torres', 'Lic. Sofía Márquez');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Humanidades', 'Facultad dedicada a las ciencias sociales y humanidades', 'Historia, Filosofía', 'Historia Universal, Ética', 'Dra. Elena Ruiz', 'Dra. Gabriela Paredes');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Ciencias', 'Facultad orientada a la investigación científica', 'Matemáticas, Física', 'Cálculo, Mecánica Cuántica', 'Dr. Jorge Castillo', 'Dr. Andrés Vega');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Arquitectura', 'Facultad de diseño arquitectónico y urbanismo', 'Arquitectura, Diseño Urbano', 'Dibujo Técnico, Historia de la Arquitectura', 'Arq. Santiago Ríos', 'Arq. Valeria Mendoza');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Educación', 'Facultad enfocada en la formación docente', 'Pedagogía, Educación Infantil', 'Psicopedagogía, Didáctica', 'Dra. Carolina Salazar', 'Dra. Mónica Fajardo');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Ciencias de la Computación', 'Facultad especializada en tecnología y software', 'Ingeniería de Software, Ciencia de Datos', 'Programación, Inteligencia Artificial', 'Dr. Manuel Herrera', 'Ing. Esteban López');
-INSERT INTO facultad (nombre, descripcion, carreras, cursos, decano, coordinador) VALUES  ('Facultad de Comunicación', 'Facultad de medios y comunicación', 'Periodismo, Publicidad', 'Redacción Periodística, Marketing Digital', 'Dr. Luis Navarro', 'Lic. Andrea Gutiérrez');
+INSERT INTO facultad (id_decano, nombre) VALUES (0, 'Facultad de Ingeniería');
+
+INSERT INTO facultad (id_decano, nombre) VALUES (1, 'Facultad de Humanidades');
+
+INSERT INTO facultad (id_decano, nombre) VALUES (2, 'Facultad de Ciencias Económicas');
+
+INSERT INTO facultad (id_decano, nombre) VALUES (3, 'Facultad de Artes');
+
+INSERT INTO facultad (id_decano, nombre) VALUES (4, 'FacultaddeDerecho');

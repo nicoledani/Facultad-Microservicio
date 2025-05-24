@@ -9,10 +9,10 @@ import java.util.Optional;
 
 public interface IFacultadService {
 
-    Facultad save(Facultad curso);
-    void delete(Facultad curso);
+    Facultad save(Facultad facultad);
+    void delete(Facultad facultad);
     Optional<Facultad> findById(Long id);
-    Facultad update(Facultad curso);
+    Facultad update(Facultad facultad);
     List<Facultad> findAll();
     Page<Facultad> findAll(Pageable pageable);
 }

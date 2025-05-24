@@ -26,36 +26,36 @@ public class FacultadRestController {
     private final IFacultadService facultadService;
 
     private static final String MENSAJE = "mensaje";
-    private static final String CURSO = "facultad";
-    private static final String CURSOS = "facultads";
+    private static final String FACULTAD = "facultad";
+    private static final String FACULTADES = "facultades";
 
 
     public FacultadRestController(IFacultadService facultadService) {
         this.facultadService = facultadService;
     }
 
-    @GetMapping("/facultads")
+    @GetMapping("/facultades")
     public ResponseEntity<Map<String, Object>> getFacultads() {
-        List<Facultad> facultads = facultadService.findAll();
-        if (facultads.isEmpty()) {
+        List<Facultad> facultades = facultadService.findAll();
+        if (facultades.isEmpty()) {
             throw new NoHayFacultadesException();
         }
         Map<String, Object> response = new HashMap<>();
-        response.put(CURSOS, facultads);
+        response.put(FACULTADES, facultades);
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/facultad/page/{page}")
     public ResponseEntity<Object> index(@PathVariable Integer page) {
         Pageable pageable = PageRequest.of(page, 4);
-        Page<Facultad> facultads = facultadService.findAll(pageable);
-        if (facultads.isEmpty()) {
+        Page<Facultad> facultades = facultadService.findAll(pageable);
+        if (facultades.isEmpty()) {
             throw new PaginaSinFacultadesException(page);
         }
-        return ResponseEntity.ok(facultads);
+        return ResponseEntity.ok(facultades);
     }
 
-    @PostMapping("/facultads")
+    @PostMapping("/facultades")
     public ResponseEntity<Map<String, Object>> save(@Valid @RequestBody Facultad facultad, BindingResult result) {
         if (result.hasErrors()) {
             throw new ValidationException(result);
@@ -63,22 +63,22 @@ public class FacultadRestController {
         Map<String, Object> response = new HashMap<>();
         Facultad nuevoFacultad = facultadService.save(facultad);
         response.put(MENSAJE, "El facultad ha sido creado con éxito!");
-        response.put(CURSO, nuevoFacultad);
+        response.put(FACULTAD, nuevoFacultad);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @DeleteMapping("/facultads")
+    @DeleteMapping("/facultades")
     public ResponseEntity<Map<String, Object>> delete(@RequestBody Facultad facultad) {
         facultadService.findById(facultad.getId())
                 .orElseThrow(() -> new FacultadNoEncontradoException(facultad.getId()));
         facultadService.delete(facultad);
         Map<String, Object> response = new HashMap<>();
         response.put(MENSAJE, "El facultad ha sido eliminado con éxito!");
-        response.put(CURSO, null);
+        response.put(FACULTAD, null);
         return ResponseEntity.ok(response);
     }
 
-    @PutMapping("/facultads")
+    @PutMapping("/facultades")
     public ResponseEntity<Map<String, Object>> update(@RequestBody Facultad facultad, BindingResult result) {
         if (result.hasErrors()) {
             throw new ValidationException(result);
@@ -88,18 +88,18 @@ public class FacultadRestController {
         Map<String, Object> response = new HashMap<>();
         Facultad facultadActualizado = facultadService.update(facultad);
         response.put(MENSAJE, "El facultad ha sido actualizado con éxito!");
-        response.put(CURSO, facultadActualizado);
+        response.put(FACULTAD, facultadActualizado);
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/facultads/{id}")
+    @GetMapping("/facultades/{id}")
     public ResponseEntity<Map<String, Object>> findById(@PathVariable long id) {
 
         Facultad facultad = facultadService.findById(id)
                 .orElseThrow(() -> new FacultadNoEncontradoException(id));
         Map<String, Object> response = new HashMap<>();
         response.put(MENSAJE, "El facultad ha sido encontrado con éxito!");
-        response.put(CURSO, facultad);
+        response.put(FACULTAD, facultad);
         return ResponseEntity.ok(response);
     }
 }

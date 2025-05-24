@@ -1,7 +1,6 @@
 package co.edu.uceva.facultadmicroservice.delivery.exception;
 
 import co.edu.uceva.facultadmicroservice.domain.exception.*;
-import com.facultadmicroservice.facultadmicroservice.domain.exception.*;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +13,10 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
     private static final String ERROR = "error";
     private static final String MENSAJE = "mensaje";
-    private static final String PRODUCTO = "curso";
-    private static final String PRODUCTOS = "cursos";
+    private static final String FACULTAD = "facultad";
+    private static final String FACULTADES = "facultades";
     private static final String STATUS = "status";
 
     @ExceptionHandler(PaginaSinFacultadesException.class)
@@ -39,7 +37,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, Object>> handleNoHayFacultades(NoHayFacultadesException ex) {
         Map<String, Object> response = new HashMap<>();
         response.put(MENSAJE, "No hay facultades en la base de datos.");
-        response.put(PRODUCTOS, null); // para que sea siempre el mismo campo
+        response.put(FACULTADES, null); // para que sea siempre el mismo campo
         return ResponseEntity.status(HttpStatus.OK).body(response); // 200 pero lista vacía
     }
 
@@ -90,4 +88,5 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 
     }
+
 }
