@@ -1,6 +1,6 @@
 package co.edu.uceva.facultadmicroservice.domain.service;
 
-import co.edu.uceva.facultadmicroservice.domain.model.Facultad;
+import co.edu.uceva.facultadmicroservice.domain.entities.Facultad;
 import co.edu.uceva.facultadmicroservice.domain.repository.IFacultadRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,11 +11,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class FacultadServiceImpl implements IFacultadService{
+public class FacultadServiceImpl implements IFacultadService  {
 
     IFacultadRepository facultadRepository;
 
-    public FacultadServiceImpl(IFacultadRepository facultadRepository) {this.facultadRepository = facultadRepository;}
+    public FacultadServiceImpl(IFacultadRepository facultadRepository) {
+        this.facultadRepository = facultadRepository;
+    }
 
     @Override
     @Transactional
@@ -52,5 +54,6 @@ public class FacultadServiceImpl implements IFacultadService{
     public Page<Facultad> findAll(Pageable pageable) {
         return facultadRepository.findAll(pageable);
     }
+
 
 }
