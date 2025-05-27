@@ -17,7 +17,7 @@ public class Facultad {
     private Long id;
 
     @NotEmpty(message ="No puede estar vacio")
-    @Size(min=2, max=20, message="El tamaño tiene que estar entre 2 y 20")
+    @Size(min=2, message="El tamaño tiene que tener minimo 2 caracteres")
     @Column(nullable=false)
     private String nombre;
 
