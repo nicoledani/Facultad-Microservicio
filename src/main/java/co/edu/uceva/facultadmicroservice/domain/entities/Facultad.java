@@ -23,6 +23,6 @@ public class Facultad {
 
     @NotNull(message = "Debe ingresar el nombre de la facultad")
     @Column(nullable = false)
-    private Long id_decano;
+    private Long idDecano;
 
 }

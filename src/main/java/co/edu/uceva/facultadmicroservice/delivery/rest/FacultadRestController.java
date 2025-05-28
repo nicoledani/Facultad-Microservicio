@@ -73,7 +73,7 @@ public class FacultadRestController {
         if (result.hasErrors()) {
             throw new ValidationException(result);
         }
-        comprobarDecanos(facultad.getId_decano());
+        comprobarDecanos(facultad.getIdDecano());
         Facultad nuevaFacultad = facultadService.save(facultad);
         Map<String, Object> response = new HashMap<>();
         response.put(MENSAJE, "La facultad ha sido creado con éxito!");
@@ -106,7 +106,7 @@ public class FacultadRestController {
         if (result.hasErrors()) {
             throw new ValidationException(result);
         }
-        comprobarDecanos(facultad.getId_decano());
+        comprobarDecanos(facultad.getIdDecano());
         facultadService.findById(facultad.getId())
                 .orElseThrow(() -> new FacultadNoEncontradoException(facultad.getId()));
         Map<String, Object> response = new HashMap<>();
