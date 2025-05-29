@@ -1,25 +1,28 @@
-
 services:
   facultad-microservice:
     image: nicoledani/facultad-microservice:latest
     container_name: facultad-microservice
     restart: unless-stopped
     depends_on:
-      - db3
+      - db5
     ports:
       - "8088:8088"
       - "8089:8089"
     environment:
-      - DB_USER=userdb
-      - DB_PASS=passdb
-      - JPA_DDL=create-drop
-      - DB_HOST=jdbc:postgresql://db3:5433/curso_springboot
+      DB_USER: userdb
+      DB_PASS: passdb
+      JPA_DDL: create-drop
+      DB_HOST: jdbc:postgresql://db5:5432/curso_springboot
+      EUREKA_HOST: eurekaserver
+      EUREKA_PORT: 8761
+      PORT: 8088
+      ACTUATOR_PORT: 8089
     networks:
       - mynetwork
 
-  db3:
+  db5:
     image: postgres:latest
-    container_name: db
+    container_name: db5
     restart: unless-stopped
     ports:
       - "5432:5432"
